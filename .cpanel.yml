@@ -1,0 +1,6 @@
+
+---
+deployment
+  tasks
+    - export DEPLOYPATH=homefreightsolutionspublic_html
+    - bincp -R site. $DEPLOYPATH
