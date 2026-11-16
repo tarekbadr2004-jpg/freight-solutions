@@ -1,6 +1,5 @@
 
 ---
-deployment
-  tasks
-    - export DEPLOYPATH=homefreightsolutionspublic_html
-    - bincp -R site. $DEPLOYPATH
+deployment:
+  tasks:
+    - /bin/cp -R site/. /home/freightsolutions/public_html/
