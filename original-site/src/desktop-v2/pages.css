@@ -1,0 +1,63 @@
+/* Desktop document pages: opaque reading surfaces over an illustrated navy ground.
+   Decoration carries no copy and cannot intercept navigation or selection. */
+@media (min-width: 761px) and (min-height: 500px), (min-width: 761px) and (pointer: fine) {
+  #view { --v2-page-art: url('/home-assets/art/who-we-are.webp');
+    background: var(--ink); padding: 72px 24px 0; }
+  #view[data-open] { background: var(--ink); }
+  #view[data-view="contact"] { --v2-page-art: url('/home-assets/art/contact-hero.webp'); }
+  #view[data-view="services"], #view[data-view="process"] { --v2-page-art: url('/home-assets/art/services-hero.webp'); }
+  #view::before { content: ''; position: fixed; inset: 0; pointer-events: none;
+    background: var(--v2-page-art) left bottom / min(58vw, 900px) auto no-repeat;
+    opacity: .22; mask-image: linear-gradient(to right, var(--ink) 25%, transparent 58%); }
+  #view #view-content { position: relative; z-index: 1; }
+  #view .view { position: relative; max-width: 1240px; margin: 0 auto;
+    padding: 40px clamp(28px, 3vw, 46px) 52px; background: var(--paper);
+    border: 1px solid color-mix(in srgb, var(--paper) 38%, transparent);
+    border-radius: 22px; box-shadow: 0 24px 70px color-mix(in srgb, var(--ink) 50%, transparent); }
+  #view .view-head { position: relative; top: auto; margin: 0 0 32px; padding: 26px;
+    background: var(--ink); color: var(--paper); border-radius: 16px; box-shadow: none;
+    overflow: hidden; }
+  #view .view-head > .eyebrow { color: var(--kraft-300); font-size: 12px; margin-bottom: 20px; }
+  #view .view-head h1 { color: var(--paper); font-size: clamp(28px, 2.6vw, 38px);
+    line-height: 1.15; letter-spacing: -.035em; margin-bottom: 0; }
+  #view .view-head::after { content: ''; display: block; height: 210px; margin: 28px -26px -26px;
+    background: var(--v2-page-art) center 72% / cover no-repeat; }
+  #view .view-body { min-width: 0; }
+  #view .view-body > p { font-size: 17px; line-height: 1.75; max-width: 70ch; }
+  #view .view-body > p + p { margin-top: 24px; }
+  #view .view-body h2 { margin-top: 36px; margin-bottom: 20px; }
+  #view .view-next { position: relative; max-width: 1240px; margin: 24px auto 40px;
+    padding: 32px; background: var(--paper); border-radius: 18px; box-shadow: none; }
+  #view .view-next a { border-radius: 10px; padding: 18px; }
+  /* ON KRAFT, THE INK ALPHAS DO NOT CARRY. This card sets its labels at `--ink-45` and its
+     heading at `--ink-50` — alphas chosen against Substrate at L*95, where they are quiet but
+     legible. Kraft 100 is #E7DFD2, so ink-45 composites to about rgb(135,138,142) on it: 2.6:1
+     against the card, on 11px type that needs 4.5:1. The heading measures 2.8:1. Both fail, and
+     they fail only inside this card, which is why nothing in the shared stylesheet could see it.
+     ink-72 composites to 5.3:1 and stays subordinate to the value beside it, which is full ink. */
+  #view .view-reach { border-radius: 14px; padding: 26px; background: var(--kraft-100); }
+  #view .view-reach h2, #view .view-reach span { color: var(--ink-72); }
+  /* The action was `--ink` type in a 1px `--ink` keyline on kraft: legible, and reading as a
+     disabled control next to a card that is itself a panel. A filled navy button on kraft is
+     13.6:1 and is what the header's own primary action looks like. */
+  #view .view-reach .cta-quiet { background: var(--ink); color: var(--paper);
+    box-shadow: inset 0 0 0 1px var(--ink); }
+  #view .view-reach .cta-quiet:hover, #view .view-reach .cta-quiet:focus-visible {
+    background: var(--navy-700); color: var(--paper); box-shadow: inset 0 0 0 1px var(--navy-700); }
+  #view .journey-quote { border-radius: 16px; background: var(--paper); }
+  #view .quote-field input, #view .quote-field select, #view .quote-field textarea {
+    min-height: 46px; border-radius: 8px; font-size: 15px; }
+  #view .quote-intro > p:last-child, #view .quote-notes { display: block; }
+  #view .quote-notes[hidden] { display: none; }
+  #view #close { border-radius: 999px; background: var(--paper); color: var(--ink);
+    border-color: var(--ink-16); min-height: 44px; padding-inline: 18px; }
+  #view .horizon { background: var(--v2-page-art) center 63% / cover no-repeat; border-radius: 12px; height: 150px; }
+  #view .horizon i { display: none; }
+  #view .view-foot { position: relative; margin-inline: -24px; }
+  [dir="rtl"] #view .view-head h1 { letter-spacing: normal; line-height: 1.5; }
+  @media (min-width: 1080px) {
+    #view .view { grid-template-columns: minmax(250px, 30ch) minmax(0, 1fr);
+      column-gap: 44px; }
+    #view .view-head { position: sticky; top: 24px; align-self: start; margin-bottom: 0; }
+  }
+}

@@ -1,0 +1,31 @@
+/* The preview is a window into the same application that opens, never a second renderer. */
+.home-journey{position:relative;display:grid;grid-template-columns:minmax(16rem,3.7fr) minmax(0,7.3fr);align-items:center;gap:clamp(2rem,4vw,4rem);background:var(--paper)}
+.home-journey::after{content:'';position:absolute;inset-inline:var(--edge);bottom:0;height:2px;background:var(--navy)}
+.journey-copy{min-width:0}.journey-copy .eyebrow{color:var(--muted);letter-spacing:.12em;line-height:1.6;margin-bottom:1.5rem}
+.journey-copy h2{max-width:12ch;font-size:clamp(2.1rem,3.4vw,3.8rem);line-height:1.08;margin-bottom:1.5rem}
+.journey-copy>p:not(.eyebrow):not(.journey-status){max-width:36ch;color:var(--muted);line-height:1.75;margin-bottom:1.75rem}
+.journey-copy .button{border-radius:999px;gap:1rem;min-height:3.25rem}
+.journey-status{font-size:.8rem;line-height:1.5;color:var(--muted);margin:.9rem 0 0}.journey-status:empty{display:none}
+.journey-display{position:relative;min-width:0}
+.journey-plane{position:absolute;z-index:3;inset-inline-end:-2.5%;top:-24%;width:42%;height:auto;pointer-events:none;filter:drop-shadow(0 .9rem .8rem color-mix(in oklch,var(--navy) 17%,transparent));transform:translate3d(var(--plane-x,0px),var(--plane-y,0px),0) scaleX(var(--plane-mir,1));transition:transform 240ms var(--ease)}
+[dir=rtl] .journey-plane{--plane-mir:-1}.journey-plane[hidden]{display:none}
+.journey-window{position:relative;min-width:0;width:100%;aspect-ratio:20/13;overflow:hidden;border:0;border-radius:10px;background:var(--paper-2);box-shadow:0 .35rem 0 color-mix(in oklch,var(--navy) 24%,var(--paper)),0 2.8rem 3rem -1.4rem color-mix(in oklch,var(--navy) 34%,transparent);transform:perspective(1800px) rotateX(var(--journey-tilt-x,2deg)) rotateY(var(--journey-tilt-y,-5deg));transform-origin:center;transition:transform 240ms var(--ease)}
+.journey-poster,.journey-frame{position:absolute;inset:0;width:100%;height:100%}.journey-poster{object-fit:cover}
+.journey-frame{opacity:0;pointer-events:none}
+.journey-frame iframe{position:absolute;left:0;top:0;display:block;border:0;width:1000px;height:650px;transform:scale(var(--journey-scale,1));transform-origin:top left}
+.journey-window[data-ready] .journey-frame{opacity:1}.journey-window[data-ready] .journey-poster{opacity:0}
+.journey-window.is-open{position:fixed;z-index:700;inset:0;width:100%;height:100dvh;aspect-ratio:auto;border:0;border-radius:0;box-shadow:none;transform:none;transition:none;background:transparent}
+.journey-window.is-open .journey-frame iframe{width:100%;height:100%;transform:none}
+.journey-window.is-open .journey-frame{transition:none;opacity:0}
+.journey-window.is-open[data-entry-started] .journey-frame{opacity:1}
+.journey-window.is-open .journey-poster{inset:auto;left:var(--entry-left);top:var(--entry-top);width:var(--entry-width);height:var(--entry-height);opacity:1;border-radius:10px;transition:none}
+.journey-window.is-open[data-entry-started] .journey-poster{opacity:0}
+.journey-window[data-direct-entry] .journey-poster{display:none}
+.journey-window[data-active] .journey-frame{pointer-events:auto}
+.journey-wait[hidden]{display:none}
+.journey-wait{position:absolute;inset-inline:1.5rem;top:50%;margin:auto;width:fit-content;max-width:calc(100% - 3rem);padding:1rem 1.25rem;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:8px;text-align:center;font-size:.9rem}
+.journey-wait a{display:block;margin-top:.75rem;font-weight:600}
+@media(max-width:64rem){.home-journey{grid-template-columns:minmax(13rem,4fr) minmax(0,6fr);gap:2rem}.journey-copy h2{font-size:clamp(2rem,4vw,3rem)}}
+/* Desktop only, including wide phones/tablets: touch alone must not warm the scene graph. */
+@media(max-width:48rem),(hover:none),(pointer:coarse),(pointer:none){body .home-journey,body [data-journey-link],body .foot-journey{display:none!important}}
+@media(prefers-reduced-motion:reduce){.journey-window{transform:none;transition:none}.journey-plane{transform:scaleX(var(--plane-mir,1));transition:none}}

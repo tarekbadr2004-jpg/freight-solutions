@@ -1,0 +1,27 @@
+/* Progressive enhancement: the document is complete and visible before motion starts. */
+:root { --motion-enter: 680ms; --motion-ease: cubic-bezier(.16, 1, .3, 1); }
+.motion-enabled .home-hero.is-ready .hero-copy > * { animation-duration: var(--motion-enter); animation-timing-function: var(--motion-ease); }
+/* The reveal's first frame, held by CSS until the observer fires. Without it a block is painted at
+   full opacity, then snaps to the animation's start and fades back in: a blink, not an entrance. */
+.motion-enabled [data-motion="reveal"]:not([data-motion-revealed]) { opacity: .32; transform: translateY(18px); }
+[data-motion-image] { transform-origin: center; }
+[data-motion-image].motion-image-enter { animation: image-settle 820ms var(--motion-ease) both; }
+@keyframes image-settle { from { opacity: .72; transform: scale(1.03); } to { opacity: 1; transform: scale(1); } }
+[data-motion-revealed].motion-step::before { animation: process-rule 500ms var(--motion-ease) both; transform-origin: left center; }
+[dir="rtl"] [data-motion-revealed].motion-step::before { transform-origin: right center; }
+@keyframes process-rule { from { opacity: .25; transform: scaleX(.16); } to { opacity: 1; transform: scaleX(1); } }
+@media (min-width:48.0625rem) {
+  .motion-enabled .step-list > li.motion-step::after { content:''; position:absolute; inset-inline:0; inset-block-start:-1px; height:1px; background:var(--navy); transform-origin:left center; }
+  [dir="rtl"].motion-enabled .step-list > li.motion-step::after { transform-origin:right center; }
+  [data-motion-revealed].motion-step::after { animation:process-rule 500ms var(--motion-ease) both; }
+}
+@media (max-width:48rem) {
+  [data-motion-revealed].motion-step::after { animation:process-vertical 420ms var(--motion-ease) both; transform-origin:center top; }
+  @keyframes process-vertical { from { opacity:.25; transform:scaleY(.16); } to { opacity:1; transform:scaleY(1); } }
+}
+.motion-enabled .text-link > span,.motion-enabled .card-arrow,.motion-enabled .project-tile > div > span:last-child { transition: transform 180ms var(--motion-ease); }
+.motion-enabled .text-link:hover > span,.motion-enabled .text-link:focus-visible > span,.motion-enabled .service-card:hover .card-arrow,.motion-enabled .service-card:focus-visible .card-arrow,.motion-enabled .project-tile:hover > div > span:last-child,.motion-enabled .project-tile:focus-visible > div > span:last-child { transform: translate3d(.22rem,-.12rem,0); }
+[dir="rtl"].motion-enabled .text-link:hover > span,[dir="rtl"].motion-enabled .text-link:focus-visible > span,[dir="rtl"].motion-enabled .service-card:hover .card-arrow,[dir="rtl"].motion-enabled .service-card:focus-visible .card-arrow,[dir="rtl"].motion-enabled .project-tile:hover > div > span:last-child,[dir="rtl"].motion-enabled .project-tile:focus-visible > div > span:last-child { transform: translate3d(-.22rem,-.12rem,0); }
+[data-motion-count] { font-variant-numeric: tabular-nums; }
+@media (max-width:48rem) { :root { --motion-enter: 480ms; } .motion-enabled [data-motion="reveal"]:not([data-motion-revealed]) { transform: translateY(10px); } [data-motion-image].motion-image-enter { animation-duration: 560ms; } }
+@media (prefers-reduced-motion:reduce) { .motion-enabled .home-hero.is-ready .hero-copy > *,[data-motion-image].motion-image-enter,[data-motion-revealed].motion-step::before,[data-motion-revealed].motion-step::after { animation:none; } .motion-enabled .text-link > span,.motion-enabled .card-arrow,.motion-enabled .project-tile > div > span:last-child { transition:none; } }

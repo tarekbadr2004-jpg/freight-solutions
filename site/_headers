@@ -1,0 +1,17 @@
+# Reconstructed from the live site's response headers (2026-11-10).
+# Cloudflare Pages adds its own defaults (CORS *, nosniff, strict-origin-when-cross-origin,
+# "public, max-age=0, must-revalidate") and appends these Cache-Control values after them.
+/*
+  X-Frame-Options: SAMEORIGIN
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/src/brand/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/src/*
+  Cache-Control: public, max-age=3600

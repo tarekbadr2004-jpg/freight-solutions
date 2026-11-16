@@ -1,0 +1,76 @@
+/* Final reading and navigation refinements. Loaded after motion.css so these rules preserve the
+   approved layout and phone geometry while resolving the shared icon and testimonial treatment. */
+.link-icon{display:inline-grid;place-items:center;inline-size:1.15em;block-size:1.15em;flex:0 0 auto;vertical-align:-.16em}.forward-icon{inline-size:100%;block-size:100%}[dir="rtl"] .forward-icon{transform:scaleX(-1)}
+.breadcrumb{gap:.5rem}.breadcrumb-separator{display:inline-grid;place-items:center;inline-size:.85rem;block-size:.85rem;opacity:.65}.breadcrumb-separator svg{inline-size:100%;block-size:100%}[dir="rtl"] .breadcrumb-separator svg{transform:scaleX(-1)}
+.text-link .link-icon,.button .link-icon,.related .link-icon{margin-inline-start:.1rem}.service-card .card-arrow{display:grid;place-items:center;inline-size:2.35rem;block-size:2.35rem;border:1px solid color-mix(in oklch,currentColor 48%,transparent);border-radius:50%;font-size:.95rem}.service-card .card-arrow .link-icon{inline-size:1rem;block-size:1rem}.project-tile .link-icon{font-size:1rem}.project-tile .card-arrow{position:absolute;z-index:2;inset-inline-end:1.25rem;top:1.25rem;display:grid;place-items:center}
+.testimonials-section .testimonial-grid,body[data-page="testimonials"] .testimonial-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,2.2vw,1.75rem);align-items:stretch}.testimonials-section .testimonial-card,body[data-page="testimonials"] .testimonial-card{position:relative;gap:1.15rem;min-height:0;margin:0;padding:clamp(1.5rem,3vw,2.4rem);border:1px solid color-mix(in oklch,var(--line) 88%,var(--paper));background:color-mix(in oklch,var(--paper-2) 58%,var(--paper));box-shadow:none}.testimonials-section .testimonial-card::before,body[data-page="testimonials"] .testimonial-card::before{content:none}.testimonials-section .testimonial-card:first-child,body[data-page="testimonials"] .testimonial-card:first-child{grid-column:1/-1;padding:clamp(2rem,4vw,3.5rem);background:var(--navy);color:var(--paper);border-color:var(--navy)}.testimonial-mark{position:relative;color:var(--red);font-family:Georgia,serif;font-size:3.5rem;line-height:.55;font-weight:700}.testimonials-section .testimonial-card>.testimonial-text,body[data-page="testimonials"] .testimonial-card>.testimonial-text{max-width:56ch;margin:0;font-size:clamp(1rem,1.3vw,1.13rem);line-height:1.7;text-align:start;text-align-last:start;hyphens:none;text-wrap:pretty}.testimonials-section .testimonial-card:first-child>.testimonial-text,body[data-page="testimonials"] .testimonial-card:first-child>.testimonial-text{max-width:68ch;font-size:clamp(1.12rem,1.8vw,1.42rem);line-height:1.62}.testimonial-attribution{position:relative;display:flex;flex-wrap:wrap;align-items:flex-start;gap:.3rem .6rem;margin-top:auto;padding-top:1rem;border-top:1px solid var(--line);font-size:.84rem}.testimonial-source{color:var(--red);font-size:.68rem;font-weight:650;letter-spacing:.12em;text-transform:uppercase}.testimonial-attribution cite{font-style:normal;font-weight:650}.testimonial-person{color:var(--muted)}.testimonials-section .testimonial-card:first-child .testimonial-attribution,body[data-page="testimonials"] .testimonial-card:first-child .testimonial-attribution{border-color:color-mix(in oklch,var(--paper) 30%,transparent)}.testimonials-section .testimonial-card:first-child .testimonial-person,body[data-page="testimonials"] .testimonial-card:first-child .testimonial-person{color:color-mix(in oklch,var(--paper) 70%,var(--navy))}.testimonial-card>a{position:relative;display:inline-flex;align-items:center;gap:.45rem;align-self:flex-start;min-height:2.5rem;padding:.3rem 0;font-weight:620;text-decoration:none}.testimonial-card>a .link-icon{inline-size:1rem;block-size:1rem}.testimonial-card>a:hover,.testimonial-card>a:focus-visible{text-decoration:underline}
+@media(max-width:48rem){.testimonials-section .testimonial-grid,body[data-page="testimonials"] .testimonial-grid{display:grid;grid-template-columns:1fr;gap:0}.testimonials-section .testimonial-card,body[data-page="testimonials"] .testimonial-card{padding:1.5rem 0;border-width:1px 0 0;background:transparent}.testimonials-section .testimonial-card:last-child,body[data-page="testimonials"] .testimonial-card:last-child{border-bottom:1px solid var(--line)}.testimonials-section .testimonial-card:first-child,body[data-page="testimonials"] .testimonial-card:first-child{grid-column:auto;margin-block:0 1.25rem;padding:1.65rem 1.25rem;border:0;background:var(--navy);color:var(--paper)}.testimonial-mark{font-size:3.1rem}.testimonials-section .testimonial-card>.testimonial-text,body[data-page="testimonials"] .testimonial-card>.testimonial-text{font-size:1rem;line-height:1.68}.testimonials-section .testimonial-card:first-child>.testimonial-text,body[data-page="testimonials"] .testimonial-card:first-child>.testimonial-text{font-size:1.08rem;line-height:1.65}.testimonial-attribution{padding-top:.9rem}}
+/* Keep the featured quote's attribution readable against its navy surface. */
+.testimonial-grid .testimonial-card:first-child .testimonial-source{color:var(--paper)}
+body .testimonial-grid .testimonial-card:first-child > .testimonial-text{color:var(--paper)}
+
+/* Service identifiers now use one coherent set of pictograms, retaining the approved red discs.
+   The corner arrow is cut out of its paper disc so the photograph shows through the stroke. */
+.section-services .service-card .service-icon{display:inline-grid;place-items:center;inline-size:2rem;block-size:2rem;border-radius:50%;background:var(--red);color:var(--paper);line-height:1}
+.service-icon svg{inline-size:1.2rem;block-size:1.2rem}
+.section-services .service-card .card-arrow,.project-tile .card-arrow{position:absolute;inline-size:2.75rem;block-size:2.75rem;border:0;color:transparent;filter:drop-shadow(0 .25rem .6rem rgba(18,33,58,.45))}
+.section-services .service-card .card-arrow .link-icon,.project-tile .card-arrow .link-icon{display:none}
+.section-services .service-card .card-arrow::before,.project-tile .card-arrow::before{content:'';position:absolute;inset:0;border-radius:50%;background:#fff;--arrow-cut:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15'/%3E%3Cpath d='m13 5 7 7-7 7'/%3E%3C/svg%3E");-webkit-mask:var(--arrow-cut) center/1.1rem no-repeat,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:var(--arrow-cut) center/1.1rem no-repeat,linear-gradient(#000 0 0);mask-composite:exclude}
+[dir=rtl] .section-services .service-card .card-arrow::before,[dir=rtl] .project-tile .card-arrow::before{transform:scaleX(-1)}
+/* The phone keeps the white disc arrow too (client 2026-09-19); the bare-glyph override that lived here is gone. */
+
+/* CLIENT LOGOS (client, 2026-09-24). The wall on /testimonials is the whole list as a ruled grid —
+   the old company profile's layout. The band on /about is the same list in motion under the
+   "100+ corporate clients" figure. Mark size is set by render.mjs (equal AREA per mark); the CSS
+   only centres it and lets a narrow cell scale it down. Logos sit on paper, never on navy: a
+   client's full-colour mark on FS Navy is their colour against ours, and half of them are navy. */
+.client-wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(11rem,1fr));margin:0;padding:0;list-style:none;border-top:1px solid var(--line);border-inline-start:1px solid var(--line)}
+.client-wall li{display:grid;place-items:center;min-height:8.5rem;padding:1.5rem 1.25rem;border-bottom:1px solid var(--line);border-inline-end:1px solid var(--line)}
+.client-wall img,.client-track img{display:block;max-width:100%;height:auto;object-fit:contain}
+.client-band{padding:var(--section-y) 0;border-top:1px solid var(--line);overflow:hidden}
+.client-band-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1.5rem 3rem;padding-inline:var(--edge);margin-bottom:clamp(2rem,4vw,3.5rem)}
+.client-band-head h2{margin:0}
+.client-count{display:flex;align-items:baseline;gap:.75rem;margin:0}
+.client-count strong{font-size:clamp(2.6rem,5vw,4.5rem);line-height:1;font-weight:500;color:var(--navy)}
+.client-count span{max-width:10ch;color:var(--muted);font-size:.95rem;line-height:1.3}
+.client-marquee{display:grid;gap:clamp(1rem,2vw,1.75rem);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.client-track{display:flex;width:max-content;animation:client-drift 70s linear infinite}
+.client-track.is-reverse{animation-direction:reverse}
+.client-track ul{display:flex;align-items:center;gap:clamp(2.5rem,5vw,4.5rem);margin:0;padding:0 clamp(1.25rem,2.5vw,2.25rem);list-style:none}
+.client-track li{display:grid;place-items:center;min-height:4.5rem}
+.client-marquee:hover .client-track,.client-marquee:focus-within .client-track{animation-play-state:paused}
+/* The duplicate row is what makes the loop seamless: moving by exactly half the track (one copy)
+   lands the second copy where the first began. RTL lays the row out from the right, so it drifts
+   the other way or the seam comes into view. */
+@keyframes client-drift{to{transform:translateX(-50%)}}
+@keyframes client-drift-rtl{to{transform:translateX(50%)}}
+[dir=rtl] .client-track{animation-name:client-drift-rtl}
+.client-band>.text-link{margin:clamp(1.75rem,3vw,2.5rem) var(--edge) 0}
+@media(max-width:48rem){.client-wall{grid-template-columns:repeat(2,minmax(0,1fr))}.client-wall li{min-height:6.5rem;padding:1rem}.client-track{animation-duration:55s}}
+@media(prefers-reduced-motion:reduce){.client-marquee{mask-image:none;padding-inline:var(--edge)}.client-track{width:auto;animation:none}.client-track ul{flex-wrap:wrap;justify-content:center;row-gap:1.5rem}.client-track ul[aria-hidden]{display:none}}
+
+/* THE JOURNEY BUTTON SHIMMERS (client, 2026-09-24: the website is now the default, so the way into
+   the journey "needs some sort of animation or highlight … to make it look more engaging"). After
+   magicui's shimmer button: a spark of light runs round the edge (::before, a conic gradient turned
+   by an animated custom property) and a sheen crosses the face (::after, which also paints the fill
+   1.5px in, leaving only the spark's rim showing). CSS only: no script, no image. A browser without
+   @property sees a still spark on the rim; reduced motion stops both. It also sits in the hero now,
+   at every width, so the invitation is on the first screen and not only in the header. */
+@property --shimmer-turn{syntax:'<angle>';inherits:false;initial-value:0deg}
+.shimmer{--shimmer-fill:var(--navy);--shimmer-spark:oklch(99% .01 80);position:relative;isolation:isolate;overflow:hidden;border:0;background:color-mix(in oklch,var(--shimmer-fill) 55%,var(--shimmer-spark));color:var(--paper);animation:shimmer-glow 3.2s ease-in-out infinite}
+.shimmer::before{content:'';position:absolute;z-index:-2;inset:-50% -10%;background:conic-gradient(from var(--shimmer-turn),transparent 0 55%,color-mix(in oklch,var(--red) 70%,transparent) 70%,var(--shimmer-spark) 82%,transparent 92%);animation:shimmer-spin 3.2s linear infinite}
+.shimmer::after{content:'';position:absolute;z-index:-1;inset:2px;border-radius:inherit;background:linear-gradient(105deg,transparent 35%,color-mix(in oklch,var(--shimmer-spark) 30%,transparent) 50%,transparent 65%) 0 0/260% 100% no-repeat,var(--shimmer-fill);box-shadow:inset 0 -.7rem 1rem color-mix(in oklch,var(--shimmer-spark) 14%,transparent);animation:shimmer-sheen 3.2s var(--ease) infinite}
+.shimmer:hover{background:color-mix(in oklch,var(--shimmer-fill) 55%,var(--shimmer-spark))}
+.shimmer.on-dark{--shimmer-fill:var(--navy-2)}
+@keyframes shimmer-spin{to{--shimmer-turn:360deg}}
+@keyframes shimmer-glow{0%,100%{box-shadow:0 .5rem 1.4rem -.6rem color-mix(in oklch,var(--navy) 55%,transparent)}50%{box-shadow:0 .5rem 1.6rem -.3rem color-mix(in oklch,var(--red) 38%,transparent)}}
+@keyframes shimmer-sheen{0%,45%{background-position:130% 0,0 0}100%{background-position:-30% 0,0 0}}
+[dir=rtl] .shimmer::after{animation-direction:reverse}
+.hero-journey{display:inline-flex}
+@media(prefers-reduced-motion:reduce){.shimmer,.shimmer::before,.shimmer::after{animation:none}}
+
+/* Keep the actual photograph legible on phone: a clean crop inside the section gutters. */
+@media(max-width:48rem){
+  body[data-page=home] .home-about figure{background:transparent;min-height:0;aspect-ratio:4/3;height:auto;margin:1.5rem 0 0;border-radius:.75rem;overflow:hidden}
+  body[data-page=home] .home-about figure img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 70%;filter:none;-webkit-mask:none;mask:none}
+}

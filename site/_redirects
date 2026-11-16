@@ -1,0 +1,38 @@
+# Reconstructed from the live site's behaviour (freight-solutions.pages.dev, 2026-11-10).
+# First match wins. Exact rules sit above the splats that would otherwise catch them.
+/index.html               /                              301
+/journey                  /?experience=journey           302
+/ar/journey               /ar/?experience=journey        302
+
+/about                    /home/about/                   301
+/contact                  /home/contact/                 301
+/faq                      /home/faq/                     301
+/testimonials             /home/testimonials/            301
+/credentials              /home/about/#credentials       301
+/industries               /home/#industries              301
+/process                  /home/#process                 301
+/quote                    /home/quote/                   301
+/ar/about                 /ar/home/about/                301
+/ar/contact               /ar/home/contact/              301
+/ar/faq                   /ar/home/faq/                  301
+/ar/testimonials          /ar/home/testimonials/         301
+/ar/credentials           /ar/home/about/#credentials    301
+/ar/industries            /ar/home/#industries           301
+/ar/process               /ar/home/#process              301
+/ar/quote                 /ar/home/quote/                301
+
+/services                 /home/services/               301
+/projects                 /home/projects/               301
+/ar/services              /ar/home/services/            301
+/ar/projects              /ar/home/projects/            301
+/services/freight         /home/services/                301
+/ar/services/freight      /ar/home/services/             301
+/services/*               /home/services/:splat          301
+/projects/*               /home/projects/:splat          301
+/ar/services/*            /ar/home/services/:splat       301
+/ar/projects/*            /ar/home/projects/:splat       301
+
+/website                  /home                          301
+/website/*                /home/:splat                   301
+/ar/website               /ar/home                       301
+/ar/website/*             /ar/home/:splat                301

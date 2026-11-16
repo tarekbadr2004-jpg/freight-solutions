@@ -1,0 +1,13 @@
+{
+  "name": "Freight Solutions Movers",
+  "short_name": "Freight Solutions",
+  "icons": [
+    { "src": "/src/brand/fs-app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/src/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/src/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/src/brand/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "theme_color": "#12213A",
+  "background_color": "#F5F1EA",
+  "display": "browser"
+}
